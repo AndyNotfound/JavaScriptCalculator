@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: rgb(47,49,48);
+    background: linear-gradient(0deg, rgba(47,49,48,1) 0%, rgba(72,179,163,1) 100%);
+}
+.gridContainer{
+    width: 30vw;
+    height: 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.calculatorDisplay{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #333333;
+    color: white;
+    font-size: 5rem;
+    padding: 0 0.5em 0 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.calculatorButton{
+    background-color: #4ABDAC;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+.clear, .plusOrMin, .percent, .equal{
+    background-color: rgb(110,202,189);
+}
+.divide, .times, .plus, .minus{
+    background-color: #3B978A;
+}
+.equal{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    border-bottom-right-radius: 1rem;
+}
+.calculatorButton:nth-child(18){
+    border-bottom-left-radius: 1rem;
+}
