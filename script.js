@@ -28,6 +28,13 @@ const buttons = document.querySelectorAll('.calculatorButton');
 Array.from(buttons).forEach(target => {
     // console.log(target);
     target.addEventListener('click', event => {
+
+        if(target.classList.contains('clear')){
+            clearCalculator();
+            updateDisplay();
+            return;
+        }
+        
         numberInput(target.innerText);
         updateDisplay();
     })
