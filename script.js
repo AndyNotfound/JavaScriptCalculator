@@ -18,8 +18,11 @@ function clearCalculator () {
 
 function numberInput (number) {
     Calculator.displayNumber === '0' ? Calculator.displayNumber = number : Calculator.displayNumber += number;
-}; 
+};
 
+function inverseNumber () {
+    Calculator.displayNumber = Calculator.displayNumber * -1;
+}
 
 const buttons = document.querySelectorAll('.calculatorButton');
 // console.log(buttons);
@@ -34,7 +37,11 @@ Array.from(buttons).forEach(target => {
             updateDisplay();
             return;
         }
-        
+        else if (target.classList.contains('plusOrMin')) {
+            inverseNumber();
+            updateDisplay();
+            return;
+        }
         numberInput(target.innerText);
         updateDisplay();
     })
