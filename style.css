@@ -41,7 +41,7 @@ body{
     border: none;
     cursor: pointer;
 }
-.clear, .plusOrMin, .percent, .equal{
+.clear, .plusOrMin, .onOff, .equal{
     background-color: rgb(110,202,189);
 }
 .divide, .times, .plus, .minus{
