@@ -43,9 +43,10 @@ Array.from(buttons).forEach(target => {
             return;
         }
         else if(target.classList.contains('operator')){
+            
+        }
         numberInput(target.innerText);
         updateDisplay();
         return;
-        }
     });
 });
