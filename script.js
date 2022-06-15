@@ -42,6 +42,7 @@ Array.from(buttons).forEach(target => {
             updateDisplay();
             return;
         }
+        else if(target.classList.contains('operator')){
         numberInput(target.innerText);
         updateDisplay();
     })

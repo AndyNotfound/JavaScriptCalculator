@@ -48,7 +48,7 @@ body{
     background-color: #3B978A;
 }
 .equal{
-    grid-column-start: 3;
+    grid-column-start: 2;
     grid-column-end: 5;
     border-bottom-right-radius: 1rem;
 }
