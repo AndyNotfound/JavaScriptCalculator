@@ -37,6 +37,29 @@ function operatorInput (operator) {
     }
 }
 
+function performCalculation (){
+    let firstNum = parseInt(Calculator.firstNumber);
+    let secondNum = parseInt(Calculator.displayNumber);
+    let operator = Calculator.operator;
+    let result = 0;
+
+    if (operator === '+') {
+        result = firstNum + secondNum;
+    }
+    else if (operator === '-') {
+        result = firstNum - secondNum;
+    }
+    else if (operator === 'x') {
+        result = firstNum * secondNum;
+    }
+    else if (operator === '÷') {
+        result = firstNum / secondNum;
+    }
+
+    Calculator.displayNumber = result;
+    // console.log(result);
+}
+
 const buttons = document.querySelectorAll('.calculatorButton');
 // console.log(buttons);
 // console.log(buttons[1].innerText);
@@ -58,9 +81,11 @@ Array.from(buttons).forEach(target => {
         else if (target.classList.contains('equal')){
             performCalculation();
             updateDisplay();
+            return;
         }
         else if (target.classList.contains('operator')){
-            handleOperator(target.innerText);
+            operatorInput(target.innerText);
+            console.log(target.innerText);
             return;
         }
         numberInput(target.innerText);
