@@ -24,6 +24,19 @@ function inverseNumber () {
     Calculator.displayNumber = Calculator.displayNumber * -1;
 }
 
+function operatorInput (operator) {
+    if (!Calculator.waitSecNumber) {
+        Calculator.operator = operator;
+        Calculator.waitSecNumber = true;
+        Calculator.firstNumber = Calculator.displayNumber;
+        // clearing the  diplay number back to default
+        Calculator.displayNumber = '0';
+    }
+    else{
+        alert('Please press equal before pressing another operator');
+    }
+}
+
 const buttons = document.querySelectorAll('.calculatorButton');
 // console.log(buttons);
 // console.log(buttons[1].innerText);
@@ -32,7 +45,7 @@ Array.from(buttons).forEach(target => {
     // console.log(target);
     target.addEventListener('click', event => {
 
-        if(target.classList.contains('clear')){
+        if (target.classList.contains('clear')){
             clearCalculator();
             updateDisplay();
             return;
@@ -42,8 +55,13 @@ Array.from(buttons).forEach(target => {
             updateDisplay();
             return;
         }
-        else if(target.classList.contains('operator')){
-            
+        else if (target.classList.contains('equal')){
+            performCalculation();
+            updateDisplay();
+        }
+        else if (target.classList.contains('operator')){
+            handleOperator(target.innerText);
+            return;
         }
         numberInput(target.innerText);
         updateDisplay();
