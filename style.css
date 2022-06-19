@@ -1,17 +1,22 @@
 body{
+    position: relative;
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
     font-family: 'Roboto', sans-serif;
     background: rgb(47,49,48);
     background: linear-gradient(0deg, rgba(47,49,48,1) 0%, rgba(72,179,163,1) 100%);
 }
 .gridContainer{
+    position: relative;
+    top: 0%;
+    z-index: 2;
+    margin: auto;
     width: 30vw;
     height: 50vw;
     display: grid;
@@ -55,3 +60,42 @@ body{
 .calculatorButton:nth-child(18){
     border-bottom-left-radius: 1rem;
 }
+.history{
+    position: absolute;
+    top: 0%;
+    left: 35%;
+    width: 30vw;
+    height: 50vw;
+    background-color: #333333;
+    border-radius: 1rem;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.history.active{
+    left: calc(100% - 36%);
+    padding-left: 2rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+}
+
+.history > h2{
+    color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+ }
+ th,
+ td {
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+ }
+ th {
+    background-color: #4ABDAC;
+    color: white;
+ }
