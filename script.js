@@ -37,6 +37,15 @@ function operatorInput (operator) {
     }
 }
 
+function showHistoryScreen (){
+    let historyScreen = document.querySelector('.history');
+    if (historyScreen.classList.contains('active')) {
+    document.querySelector('.history').classList.remove('active');
+    } else {
+    document.querySelector('.history').classList.add('active');
+    }
+}
+
 function performCalculation (){
     let firstNum = parseInt(Calculator.firstNumber);
     let secondNum = parseInt(Calculator.displayNumber);
@@ -56,16 +65,21 @@ function performCalculation (){
         result = firstNum / secondNum;
     }
 
+    const history = {
+        firstNumber: Calculator.firstNumber,
+        secondNumber: Calculator.displayNumber,
+        operator: Calculator.operator,
+        result: result
+    }
+
+    putHistory(history);
     Calculator.displayNumber = result;
-    // console.log(result);
+    renderHistory();
 }
 
 const buttons = document.querySelectorAll('.calculatorButton');
-// console.log(buttons);
-// console.log(buttons[1].innerText);
 
 Array.from(buttons).forEach(target => {
-    // console.log(target);
     target.addEventListener('click', event => {
 
         if (target.classList.contains('clear')){
@@ -85,7 +99,10 @@ Array.from(buttons).forEach(target => {
         }
         else if (target.classList.contains('operator')){
             operatorInput(target.innerText);
-            console.log(target.innerText);
+            return;
+        }
+        else if (target.classList.contains('historyButton')){
+            showHistoryScreen();
             return;
         }
         numberInput(target.innerText);
